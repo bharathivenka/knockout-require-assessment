@@ -1,0 +1,113 @@
+
+<html>
+  <head>
+    <title>PLP-PDP</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
+      integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+      integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script> 
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>TOYS LAND</h1>
+      <div data-bind="visible: !hasBeenSubmitted()" >
+        <select data-bind="click: filterPrice" id="priceDropDown">
+          <option selected disabled hidden>Select Price Range</option>
+          <option value="100-10000">Default</option>
+          <option value="100-500">100-500</option>
+          <option value="500-1000">500-1000</option>
+          <option value="1000-10000">1000-10000</option>
+        </select>
+        <select data-bind="click: sortWithPrice" id="sortDropDown">
+          <option value="asc">Price Low-High</option>
+          <option value="desc">Price High-Low</option>
+        </select>
+      </div>
+    </header>
+    <div data-bind="visible: !hasBeenSubmitted()">
+      <div data-bind="foreach: availableProducts">
+        <div class="product_container">
+          <div class="product_mainDetails">
+            <span data-bind="click: $root.selectToy">
+              <h1 data-bind="text: toyName"></h1
+            ></span>
+            <h6 class="categoryText" data-bind="text: category"></h6>
+            <span data-bind="click: $root.selectToy"
+              ><img class="productImg" data-bind="attr: {src: imagePLP}"/></span>
+          </div>
+          <div class="product_secondaryDetails">
+            <div
+              >Price:
+              <span data-bind="text: price"></span>
+            </div>
+            <div
+              >SKU:
+              <span data-bind="text: $parent.getRandomInt()"></span>
+            </div>
+            <input type="checkbox" /><label>compare <a href="">+ add to wishlist</a></label><br><br>
+            <button class="detailPage_buttons" data-bind="click: $root.selectToy">Details</button>
+          </div>
+          &nbsp;&nbsp; &nbsp;&nbsp;
+          &nbsp;&nbsp; &nbsp;&nbsp;
+          &nbsp;&nbsp; &nbsp;&nbsp;
+          Qty:<input type="button" value="-" class="minus" id="min"><input name="qty" id="quantity" type="text" value="1000" class="qty"><input type="button" value="+" class="plus" id="plus">
+          &nbsp;&nbsp; &nbsp;&nbsp;
+          &nbsp;&nbsp; &nbsp;&nbsp;
+          <div>
+            <button class="listPage_buttons">Deliver</button>
+            <button class="listPage_buttons">Pickup</button>
+          </div>
+        </div>
+      </div>
+
+      <span class="page_block">
+        <span class="jumpPage" data-bind="click: previous">Prev</span>
+        <span class="pages_container" data-bind="foreach: totalPagesArray">
+          <p
+            class="pagesIcon"
+            data-bind="text: $data, click: $root.selectPage"
+          ></p>
+        </span>
+        <span class="jumpPage" data-bind="click: next">Next</span>
+      </span>
+    </div>
+
+    <div data-bind="visible: hasBeenSubmitted">
+      <button class="detailPage_buttons back_button" data-bind="click: $root.goBack"><- Click to go Back</button>
+      <div class="detailPage" data-bind="foreach: selectedProductDetails">
+        <img class="detailPage_image" data-bind="attr: {src: imagePLP}" />
+        <div class="detailPage_details">
+          <div>
+          <h1 data-bind="text: toyName"></h1>
+          <h6 class="detailPage_category" data-bind="text: category"></h6>
+          </div>
+          <div>
+          <div>
+            SKU:
+            <span data-bind="text: $parent.getRandomInt()"></span>
+          </div>
+          <div>
+            Price:
+            <span data-bind="text: price"></span>
+          </div>
+        </div>
+        <p data-bind="text: description"></p>
+          <div>
+            <div>
+              <button class="detailPage_buttons">Deliver</button>
+              <button class="detailPage_buttons">Pickup</button>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+.calculator-display {
+    text-align: right; 
+    margin-top: 4px;
+  }
+  
+.container {
+    background-color:#581845;
+    width: 350px;
+    height: 600px;
+    border-style: solid;
+    border-width: 5px;
+    padding: 5px;
+    text-align: center;
+    border: 5px solid rgb(66, 63, 62);
+}
+.field{
+
+height:70px;
+width:350px;
+
+}
+.btnNum {
+    background-color: rgb(240, 240, 240);
+    color: black;
+    font-size: 20;
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+    font-weight: bold;
+      
+}
+
+.btnOper {
+    background-color: rgb(240, 240, 240);
+    color: black;
+    font-size: 20;
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+
+
+.btnEval {
+    background-color: rgb(240, 240, 240);
+    color: black;
+    font-size: 20;
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.btnClr{
+     background-color: rgb(240, 240, 240);
+    color: black;
+    font-size:20;
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.btnDel {
+     background-color: rgb(240, 240, 240);
+    color: black;
+    font-size:20;
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+    font-weight: bold;
+}
